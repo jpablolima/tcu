@@ -43,4 +43,12 @@ app.delete('/selecoes/:id', (req, res) => {
     res.send(`Seleção com id ${req.params.id} excluída com sucesso!`)
 })
 
+app.put('/selecoes/:id', (req, res) => {
+    let index = searchIndexSelecao(req.params.id)
+    selecoes[index].selecao = req.body.selecao
+    selecoes[index].grupo = req.body.grupo
+    //res.send(`Seleção com id ${req.params.id} foi atualizada com sucesso!`)
+    res.json(selecoes)
+})
+
 export default app
